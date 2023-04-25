@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>The Cappa Luxury Hotel</title>
+    <link rel="shortcut icon" href="cappa/img/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Barlow&amp;family=Barlow+Condensed&amp;family=Gilda+Display&amp;display=swap"
+    />
+    <link rel="stylesheet" href="cappa/css/plugins.css" />
+    <link rel="stylesheet" href="cappa/css/style.css" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> -->
+  </head>
+  <body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <!-- Preloader -->
+    <div class="preloader-bg"></div>
+    <div id="preloader">
+      <div id="preloader-status">
+        <div class="preloader-position loader"><span></span></div>
+      </div>
+    </div>
+    <!-- Progress scroll totop -->
+    <div class="progress-wrap cursor-pointer">
+      <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+      </svg>
+    </div>
+    <!-- Sidebar Section -->
+    <a href="#" class="js-cappa-nav-toggle cappa-nav-toggle"><i></i></a>
+    <aside id="cappa-aside">
+      <!-- Logo -->
+      <div class="cappa-logo">
+        <a href="/">
+          <!-- <img src="img/logo.png" class="logo-img" alt=""> -->
+          <div>
+            <i class="star"></i>
+            <i class="star"></i>
+            <i class="star"></i>
+            <i class="star"></i>
+            <i class="star"></i>
+          </div>
+          <h2>The Cappa<span>Luxury Hotel</span></h2>
+        </a>
+      </div>
+      <!-- Menu -->
+      <nav class="cappa-main-menu">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li>
+            <a href="/rooms"> Rooms & Suites</a>
+            <!-- <ul>
+                        <li><a href='rooms.html'>Rooms 1</a></li>
+                        <li><a href='rooms2.html'>Rooms 2</a></li>
+                        <li><a href='rooms3.html'>Rooms 3</a></li>
+                        <li><a href='room-details.html'>Room Details</a></li>
+                    </ul> -->
+          </li>
+          <!-- <li><a href="restaurant.html">Restaurant</a></li>
+          <li><a href="spa-wellness.html">Spa Center</a></li> -->
+          <li><a href="/gallery">Gallery</a></li>
+          <!-- <li class="cappa-sub">
+            <a href="#">News</a>
+            <ul>
+              <li><a href="news.html">News 1</a></li>
+              <li><a href="news2.html">News 2</a></li>
+              <li><a href="post.html">Single Post</a></li>
+            </ul>
+          </li> -->
+          <li><a href="/contact">Contact</a></li>
+          <li class="active"><a href="/loginUser">Login / Register</a></li>
+        </ul>
+      </nav>
+      <!-- Sidebar Footer -->
+      <div class="cappa-footer">
+        <div class="footer-column footer-contact">
+          <div class="footer-contact-info">
+            <div class="reservations">
+              <div class="icon"><span class="flaticon-call"></span></div>
+              <div class="text">
+                <p>Reservation</p>
+                <a href="tel:855-100-4444">855 100 4444</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- Main -->
+    <div id="cappa-main">
+      <!-- Header Banner -->
+      <div
+        class="banner-header section-padding bg-position-bottom valign bg-img bg-fixed"
+        data-overlay-dark="3"
+        data-background="cappa/img/slider/5.jpg"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-left caption mt-90">
+              <div>
+                <i class="star"></i>
+                <i class="star"></i>
+                <i class="star"></i>
+                <i class="star"></i>
+                <i class="star"></i>
+              </div>
+              <h2>The Cappa<span>Luxury Hotel</span></h2>
+              <!-- <h5>Get in touch</h5> -->
+              <h1>Login</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Contact -->
+
+      <!-- Reservation & Booking Form -->
+      <section class="testimonials">
+        <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/slider/2.jpg" data-overlay-dark="2">
+          <div class="container">
+            <div class="row">
+              <!-- Reservation -->
+              <div class="col-md-1 offset-md-1"></div>
+              <!-- Login Form -->
+              <div class="col-md-5 offset-md-1">
+                <div class="booking-box">
+                  <div class="padding-left">
+                    <p class="text text-left  pl-5 ml-3">Do not have an Account? <a href="/createUser" style="color:#aa8453 ;">register</a></p>
+                  </div>
+                  <div class="head-box">
+                    <h6>User Login</h6>
+                    <h4>Login Form</h4>
+                  </div>
+                  <% if(msg.length) { %>
+                    <%  for(i=0 ;i<msg.length;i++){%>
+                    <h3 style="color: #17b978;" class="text-center"><%=msg[i]%></h3><br>
+                    <%   }%>
+                    <%   } %>
+                    <% if(err.length) { %>
+                        <%  for(i=0 ;i<err.length;i++){%>
+                        <h3 style="color: #ff304f;" class="text-center"><%=err[i]%></h3><br>
+                        <%   } %>
+                        <%   } %>
+                  <div class="booking-inner clearfix">
+                    <form action="/loginUser" class="form1 clearfix" method="POST">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="input1_wrapper">
+                            <label>Email</label>
+                            <div class="input1_inner">
+                              <label for="email">Enter Your Email</label>
+                              <input type="text" class="form-control" for="email" name="email" placeholder="Email" required/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="input1_wrapper">
+                            <label>Password</label>
+                            <div class="input1_inner">
+                              <label for="password">Enter Your Password</label>
+                              <input type="password" class="form-control" for="password" name="password" placeholder="Password" required/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <button type="submit" class="btn-form1-submit mt-15">Submit</button>
+                        </div>
+                        <!-- <div class="mt-3 pt-3">
+                          <p class="text text-left mt-3 pt-3 pl-5 ml-5">Do not have an Account?  <a href="/createUser" style="color:#aa8453 ;">register</a></p>
+                        </div> -->
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!--  -->
+              <div class="col-md-3 offset-md-1"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Clients -->
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-top">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="footer-column footer-about">
+                  <h3 class="footer-title">About Hotel</h3>
+                  <p class="footer-about-text">
+                    Welcome to the best five-star deluxe hotel in New York. Hotel elementum sesue the aucan vestibulum aliquam justo in sapien rutrum
+                    volutpat.
+                  </p>
+
+                  <!-- <div class="footer-language">
+                    <i class="lni ti-world"></i>
+                    <select onchange="location = this.value;">
+                      <option value="#0">English</option>
+                      <option value="#0">German</option>
+                    </select>
+                  </div> -->
+                </div>
+              </div>
+              <div class="col-md-3 offset-md-1">
+                <div class="footer-column footer-explore clearfix">
+                  <h3 class="footer-title">Explore</h3>
+                  <ul class="footer-explore-list list-unstyled">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/rooms">Rooms & Suites</a></li>
+                    <!-- <li><a href="restaurant.html">Restaurant</a></li>
+                    <li><a href="spa-wellness.html">Spa & Wellness</a></li> -->
+                    <li><a href="/about">About Hotel</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="footer-column footer-contact">
+                  <h3 class="footer-title">Contact</h3>
+                  <p class="footer-contact-text">
+                    3/5, Azeez Ayorinde Cresent Alimosho, <br />
+                    Iyana-Ipaja, Lagos, Nigeria.
+                  </p>
+                  <div class="footer-contact-info">
+                    <p class="footer-contact-phone"><span class="flaticon-call"></span> 855 100 4444</p>
+                    <p class="footer-contact-mail">info@luxuryhotel.com</p>
+                  </div>
+                  <div class="footer-about-social-list">
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-twitter"></i></a>
+                    <a href="#"><i class="ti-youtube"></i></a>
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"><i class="ti-pinterest"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="footer-bottom-inner">
+                  <p class="footer-bottom-copy-right">© Copyright 2022 by <a href="#">DuruThemes.com</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- jQuery -->
+    <script src="cappa/js/jquery-3.6.0.min.js"></script>
+    <script src="cappa/js/jquery-migrate-3.0.0.min.js"></script>
+    <script src="cappa/js/modernizr-2.6.2.min.js"></script>
+    <script src="cappa/js/imagesloaded.pkgd.min.js"></script>
+    <script src="cappa/js/jquery.isotope.v3.0.2.js"></script>
+    <script src="cappa/js/pace.js"></script>
+    <script src="cappa/js/popper.min.js"></script>
+    <script src="cappa/js/bootstrap.min.js"></script>
+    <script src="cappa/js/scrollIt.min.js"></script>
+    <script src="cappa/js/jquery.waypoints.min.js"></script>
+    <script src="cappa/js/owl.carousel.min.js"></script>
+    <script src="cappa/js/jquery.stellar.min.js"></script>
+    <script src="cappa/js/jquery.magnific-popup.js"></script>
+    <script src="cappa/js/YouTubePopUp.js"></script>
+    <script src="cappa/js/select2.js"></script>
+    <script src="cappa/js/datepicker.js"></script>
+    <script src="cappa/js/smooth-scroll.min.js"></script>
+    <script src="cappa/js/custom.js"></script>
+  </body>
+
+  <!-- Mirrored from duruthemes.com/demo/html/cappa/demo5/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Oct 2022 00:03:42 GMT -->
+</html>

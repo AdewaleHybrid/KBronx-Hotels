@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>The Cappa Luxury Hotel</title>
+    <link rel="shortcut icon" href="cappa/img/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Barlow&amp;family=Barlow+Condensed&amp;family=Gilda+Display&amp;display=swap"
+    />
+    <link rel="stylesheet" href="cappa/css/plugins.css" />
+    <link rel="stylesheet" href="cappa/css/style.css" />
+  </head>
+  <body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <!-- Preloader -->
+    <div class="preloader-bg"></div>
+    <div id="preloader">
+      <div id="preloader-status">
+        <div class="preloader-position loader"><span></span></div>
+      </div>
+    </div>
+    <!-- Progress scroll totop -->
+    <div class="progress-wrap cursor-pointer">
+      <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+      </svg>
+    </div>
+    <!-- Sidebar Section -->
+    <a href="#" class="js-cappa-nav-toggle cappa-nav-toggle"><i></i></a>
+    <aside id="cappa-aside">
+      <!-- Logo -->
+      <div class="cappa-logo">
+        <a href="/">
+          <!-- <img src="img/logo.png" class="logo-img" alt=""> -->
+          <div>
+            <i class="star"></i>
+            <i class="star"></i>
+            <i class="star"></i>
+            <i class="star"></i>
+            <i class="star"></i>
+          </div>
+          <h2>The Cappa<span>Luxury Hotel</span></h2>
+        </a>
+      </div>
+      <!-- Menu -->
+      <nav class="cappa-main-menu">
+        <ul>
+          <% if(user.length){ %>
+          <!--Routes to be shown if a user is not logged in starts-->
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li><a href="/about">About</a></li>
+          <li>
+            <a href="/rooms"> Rooms & Suites</a>
+          </li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li class="active"><a href="/showStatus">Status</a></li>
+          <li><a href="/logout">Logout</a></li>
+          <!--Routes to be shown if a user is not logged in ends-->
+          <% } else { %>
+          <!-- Routes to be shown when user is  logged in start -->
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li><a href="/about">About</a></li>
+          <li>
+            <a href="/rooms"> Rooms & Suites</a>
+          </li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/loginUser">Login / Register</a></li>
+
+          <!-- Routes to be shown when user is logged in ends-->
+          <% } %>
+        </ul>
+      </nav>
+      <!-- Sidebar Footer -->
+      <div class="cappa-footer">
+        <div class="footer-column footer-contact">
+          <div class="footer-contact-info">
+            <div class="reservations">
+              <div class="icon"><span class="flaticon-call"></span></div>
+              <div class="text">
+                <p>Reservation</p>
+                <a href="tel:855-100-4444">855 100 4444</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- Main -->
+    <div id="cappa-main">
+      <!-- Header Banner -->
+      <div
+        class="banner-header section-padding bg-position-bottom valign bg-img bg-fixed"
+        data-overlay-dark="3"
+        data-background="cappa/img/slider/5.jpg"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-left caption mt-90">
+              <h5>Status</h5>
+              <h1>Your Booking Status</h1>
+            </div>
+          </div>
+        </div>
+      </div><br><br>
+      <!--- ------------------------------------------------------------ -->
+      <!-- ShowStatus -->
+             <!-- Status start -->
+             <div class="container">
+              <div class="row">
+                  <div class="col-lg-12 positiontb">
+                      <% if(msg.length) { %>
+  
+                      <h3 style="color: #aa8453;" class="text-center"><%=msg%></h3><br>
+  
+                      <%   } %>
+                      <% if(err.length) { %>
+  
+                      <div class="errposition">
+                          <h3 style="color: #aa8453;" class="text-center"><%=err%></h3>
+                      </div>
+  
+  
+                      <%   } %>
+  
+                      <% if(err.length == 0 ){ %>
+  
+                      <table class="table">
+                          <thead class="thead-dark">
+                              <tr border="1">
+                                  <th style="color: #aa8453">Name</th>
+                                  <th style="color: #aa8453">Date</th>
+                                  <th style="color: #aa8453">Category</th>
+                                  <th style="color: #aa8453">Type</th>
+                                  <th style="color: #aa8453">Status</th>
+                              </tr>
+                          </thead>
+                          <% for(i in data){  %>
+  
+                          <tbody>
+                              <tr>
+                                  <td><%=data[i].email%></td>
+                                  <td><%=data[i].date%></td>
+                                  <td><%=data[i].category%> </td>
+                                  <td><%=data[i].type%></td>
+                                  
+                                  <% if(data[i].status == 1){ %>
+                                      <td style="color: #17b978;" class="text-center">Approved</td>
+                                  <% }  else if(data[i].status == 0){ %>
+                                      <td style="color: #f0da16;" class="text-center">Pending
+                                      <form action="/deletereq"  method="POST"> 
+                                          <input type="text" name="mail" value="<%=data[i].email%>" hidden>
+                                          <input type="text" name="want" value="<%=data[i].roomWant%>" hidden>
+                                          <input type="text" name="cat" value="<%=data[i].category%>" hidden>
+                                          <input type="text" name="type" value="<%=data[i].type%>" hidden>
+                                          <input type="submit" value="Delete" style="background-color: #ff304f;" class="text-center btn btn-danger buttonDelete">
+                                      </td>
+                                      </form>
+                                  <%  } %>
+  
+                              </tr>
+                          </tbody>
+                          <%   } %>
+                      </table>
+                      <%   } %>
+                  </div>
+              </div>
+          </div>
+          <!-- Status End -->
+      <!-- Show status ends -->
+      <!--- ------------------------------------------------------------ -->
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-top">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="footer-column footer-about">
+                  <h3 class="footer-title">About Hotel</h3>
+                  <p class="footer-about-text">
+                    Welcome to the best five-star deluxe hotel in New York. Hotel elementum sesue the aucan vestibulum aliquam justo in sapien rutrum
+                    volutpat.
+                  </p>
+
+                  <!-- <div class="footer-language">
+                    <i class="lni ti-world"></i>
+                    <select onchange="location = this.value;">
+                      <option value="#0">English</option>
+                      <option value="#0">German</option>
+                    </select>
+                  </div> -->
+                </div>
+              </div>
+              <div class="col-md-3 offset-md-1">
+                <div class="footer-column footer-explore clearfix">
+                  <h3 class="footer-title">Explore</h3>
+                  <ul class="footer-explore-list list-unstyled">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/rooms">Rooms & Suites</a></li>
+                    <!-- <li><a href="restaurant.html">Restaurant</a></li>
+                    <li><a href="spa-wellness.html">Spa & Wellness</a></li> -->
+                    <li><a href="/about">About Hotel</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="footer-column footer-contact">
+                  <h3 class="footer-title">Contact</h3>
+                  <p class="footer-contact-text">
+                    3/5, Azeez Ayorinde Cresent Alimosho, <br />
+                    Iyana-Ipaja, Lagos, Nigeria.
+                  </p>
+                  <div class="footer-contact-info">
+                    <p class="footer-contact-phone"><span class="flaticon-call"></span> 855 100 4444</p>
+                    <p class="footer-contact-mail">info@luxuryhotel.com</p>
+                  </div>
+                  <div class="footer-about-social-list">
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-twitter"></i></a>
+                    <a href="#"><i class="ti-youtube"></i></a>
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"><i class="ti-pinterest"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="footer-bottom-inner">
+                  <p class="footer-bottom-copy-right">© Copyright 2022 by <a href="#">DuruThemes.com</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- jQuery -->
+    <script src="cappa/js/jquery-3.6.0.min.js"></script>
+    <script src="cappa/js/jquery-migrate-3.0.0.min.js"></script>
+    <script src="cappa/js/modernizr-2.6.2.min.js"></script>
+    <script src="cappa/js/imagesloaded.pkgd.min.js"></script>
+    <script src="cappa/js/jquery.isotope.v3.0.2.js"></script>
+    <script src="cappa/js/pace.js"></script>
+    <script src="cappa/js/popper.min.js"></script>
+    <script src="cappa/js/bootstrap.min.js"></script>
+    <script src="cappa/js/scrollIt.min.js"></script>
+    <script src="cappa/js/jquery.waypoints.min.js"></script>
+    <script src="cappa/js/owl.carousel.min.js"></script>
+    <script src="cappa/js/jquery.stellar.min.js"></script>
+    <script src="cappa/js/jquery.magnific-popup.js"></script>
+    <script src="cappa/js/YouTubePopUp.js"></script>
+    <script src="cappa/js/select2.js"></script>
+    <script src="cappa/js/datepicker.js"></script>
+    <script src="cappa/js/smooth-scroll.min.js"></script>
+    <script src="cappa/js/custom.js"></script>
+  </body>
+
+</html>
